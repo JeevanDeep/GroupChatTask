@@ -119,5 +119,4 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.setMessage("Please wait...");
         progressDialog.show();
     }
-
 }
