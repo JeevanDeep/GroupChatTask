@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "270371881018",
+    "firebase_url": "https://groupchattask.firebaseio.com",
+    "project_id": "groupchattask",
+    "storage_bucket": "groupchattask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270371881018:android:3e64cbad5d674720",
+        "android_client_info": {
+          "package_name": "com.gtbit.jeevan.groupchattask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270371881018-3i8ire7us5uee5lk21r8a6e408uii6dg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gtbit.jeevan.groupchattask",
+            "certificate_hash": "e5151e6d3be18f08863c864f7b0bb9dec0f21e73"
+          }
+        },
+        {
+          "client_id": "270371881018-6kevqoumqgnqc624noha7rtapncrsfqt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnvZqI0v0zPaUy2aCfdKjz6ptBbGtcwzU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270371881018-6kevqoumqgnqc624noha7rtapncrsfqt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
