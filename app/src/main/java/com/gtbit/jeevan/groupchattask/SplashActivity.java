@@ -13,16 +13,17 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        final boolean isLogin = pref.getBoolean("isLogin", false);
 
-        new CountDownTimer(1500, 1000) {
+        new CountDownTimer(1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
             }
 
             @Override
             public void onFinish() {
-                if (pref.getBoolean("isLogin", false))
+                if (isLogin)
                     startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 else
                     startActivity(new Intent(SplashActivity.this, LoginActivity.class));
