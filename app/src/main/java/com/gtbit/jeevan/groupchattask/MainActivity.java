@@ -1,5 +1,6 @@
 package com.gtbit.jeevan.groupchattask;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference messageDataBaseReference;
     private String username;
     private MyRecyclerViewAdapter adapter;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         etMessage = findViewById(R.id.messageET);
         sendButton = findViewById(R.id.sendButton);
         chatList = findViewById(R.id.recyclerView);
+        showProgressDialog();
 
         adapter = new MyRecyclerViewAdapter(new ArrayList<ChatMessage>(), this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         messageDataBaseReference = firebaseDatabase.getReference().child("messages");
 
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         username = pref.getString("username", "");
 
         etMessage.addTextChangedListener(new TextWatcher() {
@@ -78,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 ChatMessage message = dataSnapshot.getValue(ChatMessage.class);
                 adapter.add(message);
                 chatList.scrollToPosition(adapter.getItemCount() - 1);
+                if (progressDialog.isShowing())
+                    progressDialog.dismiss();
             }
 
             @Override
@@ -106,6 +111,13 @@ public class MainActivity extends AppCompatActivity {
                 etMessage.setText("");
             }
         });
+    }
+
+    private void showProgressDialog() {
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMax(80);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.show();
     }
 
 }
